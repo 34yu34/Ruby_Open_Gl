@@ -109,7 +109,7 @@ class Vector
   end
 
   def norm
-    @data.map { |x| x**2 }.reduce(:+)
+    @data.map { |x| x**2 }.reduce(:+)**0.5
   end
 
   def normalize

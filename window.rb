@@ -10,8 +10,8 @@ class Window < Gosu::Window
     @shapes = []
     @camera = Camera.new(Vector.new([0, 0, 0]), Vector.new([0, 0, 1]), Vector.new([0, 1, 0]), width, height)
     materials = [Materials::EMERALD, Materials::JADE, Materials::BRONZE].cycle
-    (-100...100).each do |i|
-      (-100...100).each do |j|
+    (-10...10).each do |i|
+      (-10...10).each do |j|
         transform = Transform.new(Vector.new([i * 2, -2.5, j * 2]), Vector.new([2, 2, 2]))
         @shapes << GameObject.new(CubeVBO, materials.next, transform)
       end
@@ -27,10 +27,6 @@ class Window < Gosu::Window
     @light.direction = [0, -1, 0]
     transformLight = Transform.new(Vector.new(@light.position[0..3]))
     @sphereL = GameObject.new(Sphere, Materials::WHITE_LIGHT, transformLight)
-
-    # gl do
-      # CubeVBO.init()
-    # end
   end
 
   def update
